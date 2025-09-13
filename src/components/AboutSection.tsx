@@ -18,7 +18,7 @@ const AboutSection = () => {
     {
       icon: Code2,
       title: "Passion",
-      description: "Clean Code Enthusiast",
+      description: "Aspiring Full Stack Developer",
       details: "Problem Solver"
     }
   ];
