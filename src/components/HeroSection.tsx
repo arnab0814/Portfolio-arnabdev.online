@@ -42,10 +42,17 @@ const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-in-left">
               <Button 
-                onClick={() => scrollToSection("projects")}
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = 'https://drive.google.com/uc?export=download&id=1EI5MlcwlO-1kzG-gyay80GLzGFoBWatA';
+                  link.download = 'Arnab_Das_Resume.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
                 className="bg-portfolio-accent hover:bg-portfolio-accent-hover text-white px-8 py-3 text-lg font-semibold shadow-glow hover:shadow-glow transition-all duration-300"
               >
-                View Portfolio
+                Resume
               </Button>
               <Button 
                 variant="outline"
