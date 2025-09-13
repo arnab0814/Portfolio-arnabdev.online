@@ -1,0 +1,211 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Linkedin, Github, Send, MapPin, Phone } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+
+const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const { toast } = useToast();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Please fill in all fields",
+        description: "All fields are required to send your message.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Simulate form submission
+    toast({
+      title: "Message sent successfully!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+
+    // Reset form
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "arnabdas0814@gmail.com",
+      href: "mailto:arnabdas0814@gmail.com"
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "linkedin.com/in/arnab-das-581a87264",
+      href: "https://linkedin.com/in/arnab-das-581a87264"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "github.com/arnab0814",
+      href: "https://github.com/arnab0814"
+    }
+  ];
+
+  return (
+    <section id="contact" className="py-20 bg-portfolio-bg">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-portfolio-text-primary mb-4">
+            Get In <span className="text-portfolio-accent">Touch</span>
+          </h2>
+          <div className="w-24 h-1 bg-portfolio-accent mx-auto mb-6"></div>
+          <p className="text-portfolio-text-secondary text-lg max-w-2xl mx-auto">
+            Ready to start your next project? Let's discuss how we can work together to create something amazing.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Form */}
+          <Card className="bg-portfolio-card border-portfolio-accent/20 shadow-portfolio-card">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-portfolio-text-primary mb-6">
+                Send me a message
+              </h3>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-portfolio-text-primary mb-2">
+                    Your Name
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Enter your full name"
+                    className="bg-portfolio-bg border-portfolio-accent/30 text-portfolio-text-primary placeholder:text-portfolio-text-secondary focus:border-portfolio-accent"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-portfolio-text-primary mb-2">
+                    Email Address
+                  </label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Enter your email address"
+                    className="bg-portfolio-bg border-portfolio-accent/30 text-portfolio-text-primary placeholder:text-portfolio-text-secondary focus:border-portfolio-accent"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-portfolio-text-primary mb-2">
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell me about your project or how I can help you..."
+                    rows={5}
+                    className="bg-portfolio-bg border-portfolio-accent/30 text-portfolio-text-primary placeholder:text-portfolio-text-secondary focus:border-portfolio-accent resize-none"
+                  />
+                </div>
+                
+                <Button 
+                  type="submit"
+                  className="w-full bg-portfolio-accent hover:bg-portfolio-accent-hover text-white font-semibold py-3 shadow-glow hover:shadow-glow transition-all duration-300"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  Send Message
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+
+          {/* Contact Information */}
+          <div className="space-y-8">
+            <Card className="bg-portfolio-card border-portfolio-accent/20 shadow-portfolio-card">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-portfolio-text-primary mb-6">
+                  Contact Information
+                </h3>
+                
+                <div className="space-y-6">
+                  {contactInfo.map((info, index) => (
+                    <a
+                      key={index}
+                      href={info.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-4 bg-portfolio-bg rounded-lg hover:bg-portfolio-accent/10 transition-all duration-300 group"
+                    >
+                      <div className="w-12 h-12 bg-portfolio-accent/20 rounded-lg flex items-center justify-center group-hover:bg-portfolio-accent/30 transition-all duration-300">
+                        <info.icon className="w-6 h-6 text-portfolio-accent" />
+                      </div>
+                      <div>
+                        <div className="text-portfolio-text-primary font-medium">
+                          {info.label}
+                        </div>
+                        <div className="text-portfolio-text-secondary text-sm">
+                          {info.value}
+                        </div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Additional Info */}
+            <Card className="bg-portfolio-card border-portfolio-accent/20 shadow-portfolio-card">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-portfolio-text-primary mb-4">
+                  Let's Work Together
+                </h3>
+                <p className="text-portfolio-text-secondary mb-6">
+                  I'm always excited to take on new challenges and collaborate on innovative projects. 
+                  Whether you need a full-stack application, backend system, or mobile app, I'm here to help.
+                </p>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-4 bg-portfolio-bg rounded-lg">
+                    <div className="text-2xl font-bold text-portfolio-accent">24h</div>
+                    <div className="text-sm text-portfolio-text-secondary">Response Time</div>
+                  </div>
+                  <div className="text-center p-4 bg-portfolio-bg rounded-lg">
+                    <div className="text-2xl font-bold text-portfolio-accent">100%</div>
+                    <div className="text-sm text-portfolio-text-secondary">Commitment</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactSection;
