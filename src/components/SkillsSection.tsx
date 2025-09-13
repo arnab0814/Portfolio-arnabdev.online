@@ -2,63 +2,96 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Code, Database, Globe, Settings } from "lucide-react";
-
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState(0);
-
-  const skillCategories = [
-    {
-      title: "Frontend",
-      icon: Globe,
-      skills: [
-        { name: "React", level: 85, icon: "⚛️" },
-        { name: "XML", level: 80, icon: "📄" },
-        { name: "UI Design", level: 75, icon: "🎨" },
-        { name: "Responsive Design", level: 90, icon: "📱" }
-      ]
-    },
-    {
-      title: "Backend",
-      icon: Settings,
-      skills: [
-        { name: "Java", level: 95, icon: "☕" },
-        { name: "Spring Boot", level: 90, icon: "🍃" },
-        { name: "REST APIs", level: 85, icon: "🔗" },
-        { name: "Microservices", level: 75, icon: "🔧" }
-      ]
-    },
-    {
-      title: "Database",
-      icon: Database,
-      skills: [
-        { name: "MySQL", level: 85, icon: "🗄️" },
-        { name: "Firebase", level: 80, icon: "🔥" },
-        { name: "Database Design", level: 85, icon: "📊" },
-        { name: "Query Optimization", level: 75, icon: "⚡" }
-      ]
-    },
-    {
-      title: "Other",
-      icon: Code,
-      skills: [
-        { name: "Problem Solving", level: 95, icon: "🧩" },
-        { name: "Clean Code", level: 90, icon: "✨" },
-        { name: "Git/GitHub", level: 85, icon: "🌿" },
-        { name: "Agile/Scrum", level: 80, icon: "🔄" }
-      ]
-    }
-  ];
-
+  const skillCategories = [{
+    title: "Frontend",
+    icon: Globe,
+    skills: [{
+      name: "React",
+      level: 85,
+      icon: "⚛️"
+    }, {
+      name: "XML",
+      level: 80,
+      icon: "📄"
+    }, {
+      name: "UI Design",
+      level: 75,
+      icon: "🎨"
+    }, {
+      name: "Responsive Design",
+      level: 90,
+      icon: "📱"
+    }]
+  }, {
+    title: "Backend",
+    icon: Settings,
+    skills: [{
+      name: "Java",
+      level: 95,
+      icon: "☕"
+    }, {
+      name: "Spring Boot",
+      level: 90,
+      icon: "🍃"
+    }, {
+      name: "REST APIs",
+      level: 85,
+      icon: "🔗"
+    }, {
+      name: "Microservices",
+      level: 75,
+      icon: "🔧"
+    }]
+  }, {
+    title: "Database",
+    icon: Database,
+    skills: [{
+      name: "MySQL",
+      level: 85,
+      icon: "🗄️"
+    }, {
+      name: "Firebase",
+      level: 80,
+      icon: "🔥"
+    }, {
+      name: "Database Design",
+      level: 85,
+      icon: "📊"
+    }, {
+      name: "Query Optimization",
+      level: 75,
+      icon: "⚡"
+    }]
+  }, {
+    title: "Other",
+    icon: Code,
+    skills: [{
+      name: "Problem Solving",
+      level: 95,
+      icon: "🧩"
+    }, {
+      name: "Clean Code",
+      level: 90,
+      icon: "✨"
+    }, {
+      name: "Git/GitHub",
+      level: 85,
+      icon: "🌿"
+    }, {
+      name: "Agile/Scrum",
+      level: 80,
+      icon: "🔄"
+    }]
+  }];
   const nextCategory = () => {
-    setActiveCategory((prev) => (prev + 1) % skillCategories.length);
+    setActiveCategory(prev => (prev + 1) % skillCategories.length);
   };
-
   const prevCategory = () => {
-    setActiveCategory((prev) => (prev - 1 + skillCategories.length) % skillCategories.length);
+    setActiveCategory(prev => (prev - 1 + skillCategories.length) % skillCategories.length);
   };
-
-  return (
-    <section id="skills" className="py-20 bg-portfolio-card">
+  return <section id="skills" className="py-20 bg-portfolio-card">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-portfolio-text-primary mb-4">
@@ -72,38 +105,18 @@ const SkillsSection = () => {
 
         {/* Category Navigation */}
         <div className="flex items-center justify-center mb-12">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={prevCategory}
-            className="text-portfolio-accent hover:bg-portfolio-accent/20"
-          >
+          <Button variant="ghost" size="icon" onClick={prevCategory} className="text-portfolio-accent hover:bg-portfolio-accent/20">
             <ChevronLeft className="w-6 h-6" />
           </Button>
           
           <div className="flex space-x-4 mx-8">
-            {skillCategories.map((category, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveCategory(index)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                  activeCategory === index
-                    ? "bg-portfolio-accent text-white shadow-glow"
-                    : "text-portfolio-text-secondary hover:text-portfolio-accent hover:bg-portfolio-accent/10"
-                }`}
-              >
+            {skillCategories.map((category, index) => <button key={index} onClick={() => setActiveCategory(index)} className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-300 ${activeCategory === index ? "bg-portfolio-accent text-white shadow-glow" : "text-portfolio-text-secondary hover:text-portfolio-accent hover:bg-portfolio-accent/10"}`}>
                 <category.icon className="w-5 h-5" />
                 <span className="hidden sm:inline">{category.title}</span>
-              </button>
-            ))}
+              </button>)}
           </div>
           
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={nextCategory}
-            className="text-portfolio-accent hover:bg-portfolio-accent/20"
-          >
+          <Button variant="ghost" size="icon" onClick={nextCategory} className="text-portfolio-accent hover:bg-portfolio-accent/20">
             <ChevronRight className="w-6 h-6" />
           </Button>
         </div>
@@ -122,8 +135,7 @@ const SkillsSection = () => {
               </div>
               
               <div className="grid md:grid-cols-2 gap-6">
-                {skillCategories[activeCategory].skills.map((skill, index) => (
-                  <div key={index} className="group">
+                {skillCategories[activeCategory].skills.map((skill, index) => <div key={index} className="group">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{skill.icon}</span>
@@ -136,13 +148,11 @@ const SkillsSection = () => {
                       </span>
                     </div>
                     <div className="w-full bg-portfolio-card rounded-full h-2 overflow-hidden">
-                      <div
-                        className="h-full bg-accent-gradient rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
+                      <div className="h-full bg-accent-gradient rounded-full transition-all duration-1000 ease-out" style={{
+                    width: `${skill.level}%`
+                  }}></div>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </CardContent>
           </Card>
@@ -164,14 +174,12 @@ const SkillsSection = () => {
           </Card>
           <Card className="bg-portfolio-bg border-portfolio-accent/20 hover:border-portfolio-accent/50 transition-all duration-300">
             <CardContent className="p-6 text-center">
-              <div className="text-3xl font-bold text-portfolio-accent mb-2">5+</div>
+              <div className="text-3xl font-bold text-portfolio-accent mb-2">3+</div>
               <div className="text-portfolio-text-primary font-medium">Projects Completed</div>
             </CardContent>
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default SkillsSection;
