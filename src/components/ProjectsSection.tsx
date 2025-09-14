@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, ExternalLink, Github, Calendar, Users, Database, Code2 } from "lucide-react";
 
 const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useState(0);
+  const navigate = useNavigate();
 
   const projects = [
     {
+      id: "train-reservation",
       title: "Train Reservation System",
       description: "A comprehensive backend system for train booking and reservation management built with Java and Spring Boot. Features include user authentication, train search functionality, seat booking, and complete reservation management.",
       image: "/api/placeholder/600/400",
@@ -30,6 +33,7 @@ const ProjectsSection = () => {
       ]
     },
     {
+      id: "milap-dating-app",
       title: "Milap - Dating App",
       description: "A modern Android dating application developed as an academic project. Features profile matching, real-time chat, and user authentication. Built with Java and XML for Android platform with Firebase backend.",
       image: "/api/placeholder/600/400",
@@ -201,6 +205,7 @@ const ProjectsSection = () => {
                     variant="outline"
                     className="border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white"
                     size="sm"
+                    onClick={() => navigate(`/project/${project.id}`)}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Learn More
