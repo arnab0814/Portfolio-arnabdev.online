@@ -185,11 +185,14 @@ const ContactSection = () => {
                 
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
-                    <div
+                    <a
                       key={index}
-                      className="flex items-center gap-4 p-4 bg-portfolio-bg rounded-lg"
+                      href={info.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-4 bg-portfolio-bg rounded-lg hover:bg-portfolio-accent/10 transition-all duration-300 group cursor-pointer"
                     >
-                      <div className="w-12 h-12 bg-portfolio-accent/20 rounded-lg flex items-center justify-center">
+                      <div className="w-12 h-12 bg-portfolio-accent/20 rounded-lg flex items-center justify-center group-hover:bg-portfolio-accent/30 transition-all duration-300">
                         <info.icon className="w-6 h-6 text-portfolio-accent" />
                       </div>
                       <div>
@@ -197,7 +200,7 @@ const ContactSection = () => {
                           {info.label}
                         </div>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </CardContent>
