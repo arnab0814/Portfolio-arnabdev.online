@@ -13,7 +13,7 @@ const ProjectsSection = () => {
       id: "train-reservation",
       title: "Train Reservation System",
       description: "A comprehensive backend system for train booking and reservation management built with Java and Spring Boot. Features include user authentication, train search functionality, seat booking, and complete reservation management.",
-      image: "/api/placeholder/600/400",
+      image: "https://i.postimg.cc/59vdfyqL/Chat-GPT-Image-Sep-11-2025-10-28-23-PM.png",
       techStack: ["Java", "Spring Boot", "MySQL", "REST API"],
       features: [
         "User login and authentication",
@@ -36,7 +36,7 @@ const ProjectsSection = () => {
       id: "milap-dating-app",
       title: "Milap - Dating App",
       description: "A modern Android dating application developed as an academic project. Features profile matching, real-time chat, and user authentication. Built with Java and XML for Android platform with Firebase backend.",
-      image: "/api/placeholder/600/400",
+      image: "https://i.postimg.cc/gJdxDjph/banner.png",
       techStack: ["Java", "XML", "Firebase", "Android SDK"],
       features: [
         "Profile creation and management",
@@ -121,11 +121,12 @@ const ProjectsSection = () => {
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Project Image */}
               <div className="relative">
-                <div className="aspect-video bg-portfolio-bg flex items-center justify-center">
-                  <div className="text-center">
-                    <Code2 className="w-20 h-20 text-portfolio-accent mx-auto mb-4" />
-                    <p className="text-portfolio-text-secondary">Project Screenshot</p>
-                  </div>
+                <div className="aspect-video bg-portfolio-bg flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="absolute top-4 left-4">
                   <span className="bg-portfolio-accent text-white px-3 py-1 rounded-full text-sm font-medium">
