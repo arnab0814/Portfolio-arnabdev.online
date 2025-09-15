@@ -13,7 +13,7 @@ const ProjectDetails = () => {
       id: "train-reservation",
       title: "Train Reservation System",
       description: "A comprehensive backend system for train booking and reservation management built with Java and Spring Boot. Features include user authentication, train search functionality, seat booking, and complete reservation management.",
-      image: "/api/placeholder/800/400",
+      image: "https://i.postimg.cc/59vdfyqL/Chat-GPT-Image-Sep-11-2025-10-28-23-PM.png",
       techStack: ["Java", "Spring Boot", "MySQL", "REST API", "JPA/Hibernate", "Maven"],
       features: [
         "User login and authentication with JWT tokens",
@@ -47,7 +47,7 @@ const ProjectDetails = () => {
       id: "milap-dating-app",
       title: "Milap - Dating App",
       description: "A modern Android dating application developed as an academic project. Features profile matching, real-time chat, and user authentication. Built with Java and XML for Android platform with Firebase backend.",
-      image: "/api/placeholder/800/400",
+      image: "https://i.postimg.cc/gJdxDjph/banner.png",
       techStack: ["Java", "XML", "Firebase", "Android SDK", "Firebase Auth", "Cloud Firestore"],
       features: [
         "Profile creation and management with photo uploads",
@@ -149,6 +149,50 @@ const ProjectDetails = () => {
               </CardContent>
             </Card>
 
+            {/* Project Overview */}
+            <Card className="bg-portfolio-card border-portfolio-accent/20">
+              <CardContent className="p-8">
+                <h2 className="text-2xl font-bold text-portfolio-text-primary mb-6 flex items-center gap-2">
+                  <Code2 className="w-6 h-6 text-portfolio-accent" />
+                  Project Overview
+                </h2>
+                
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-portfolio-text-secondary text-lg leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <h3 className="font-semibold text-portfolio-text-primary">Key Features:</h3>
+                      <ul className="space-y-2">
+                        {project.features.slice(0, 5).map((feature, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <div className="w-2 h-2 bg-portfolio-accent rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-portfolio-text-secondary">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <h3 className="font-semibold text-portfolio-text-primary">Additional Features:</h3>
+                      <ul className="space-y-2">
+                        {project.features.slice(5, 10).map((feature, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <div className="w-2 h-2 bg-portfolio-accent rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-portfolio-text-secondary">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Technical Architecture */}
             <Card className="bg-portfolio-card border-portfolio-accent/20">
               <CardContent className="p-8">
@@ -164,43 +208,6 @@ const ProjectDetails = () => {
                         {key.replace(/([A-Z])/g, ' $1').trim()}
                       </h3>
                       <p className="text-portfolio-text-secondary">{value}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Features */}
-            <Card className="bg-portfolio-card border-portfolio-accent/20">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-portfolio-text-primary mb-6 flex items-center gap-2">
-                  <CheckCircle className="w-6 h-6 text-portfolio-accent" />
-                  Key Features
-                </h2>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  {project.features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-portfolio-accent rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-portfolio-text-secondary">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Project Highlights */}
-            <Card className="bg-portfolio-card border-portfolio-accent/20">
-              <CardContent className="p-8">
-                <h2 className="text-2xl font-bold text-portfolio-text-primary mb-6">
-                  Project Highlights
-                </h2>
-                
-                <div className="grid md:grid-cols-3 gap-6">
-                  {project.highlights.map((highlight, index) => (
-                    <div key={index} className="text-center p-4 bg-portfolio-bg rounded-lg border border-portfolio-accent/20">
-                      <Database className="w-8 h-8 text-portfolio-accent mx-auto mb-3" />
-                      <p className="text-portfolio-text-primary font-medium">{highlight}</p>
                     </div>
                   ))}
                 </div>
