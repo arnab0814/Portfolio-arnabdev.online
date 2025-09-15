@@ -139,11 +139,12 @@ const ProjectDetails = () => {
             {/* Project Image */}
             <Card className="bg-portfolio-card border-portfolio-accent/20">
               <CardContent className="p-0">
-                <div className="aspect-video bg-portfolio-bg flex items-center justify-center">
-                  <div className="text-center">
-                    <Code2 className="w-24 h-24 text-portfolio-accent mx-auto mb-4" />
-                    <p className="text-portfolio-text-secondary text-lg">Project Preview</p>
-                  </div>
+                <div className="aspect-video bg-portfolio-bg overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </CardContent>
             </Card>
