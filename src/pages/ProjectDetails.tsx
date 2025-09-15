@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, Github, ExternalLink, Calendar, Users, Code2, Database, CheckCircle } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, Calendar, Users, Code2, Database, CheckCircle, Server, Smartphone, FileCode, Settings, Cloud, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -14,7 +14,14 @@ const ProjectDetails = () => {
       title: "Train Reservation System",
       description: "A comprehensive backend system for train booking and reservation management built with Java and Spring Boot. Features include user authentication, train search functionality, seat booking, and complete reservation management.",
       image: "https://i.postimg.cc/59vdfyqL/Chat-GPT-Image-Sep-11-2025-10-28-23-PM.png",
-      techStack: ["Java", "Spring Boot", "MySQL", "REST API", "JPA/Hibernate", "Maven"],
+      techStack: [
+        { name: "Java", icon: Code2 },
+        { name: "Spring Boot", icon: Server },
+        { name: "MySQL", icon: Database },
+        { name: "REST API", icon: Settings },
+        { name: "JPA/Hibernate", icon: Database },
+        { name: "Maven", icon: Settings }
+      ],
       features: [
         "User login and authentication with JWT tokens",
         "Advanced train search with filters (source, destination, date)",
@@ -48,7 +55,14 @@ const ProjectDetails = () => {
       title: "Milap - Dating App",
       description: "A modern Android dating application developed as an academic project. Features profile matching, real-time chat, and user authentication. Built with Java and XML for Android platform with Firebase backend.",
       image: "https://i.postimg.cc/gJdxDjph/banner.png",
-      techStack: ["Java", "XML", "Firebase", "Android SDK", "Firebase Auth", "Cloud Firestore"],
+      techStack: [
+        { name: "Java", icon: Code2 },
+        { name: "XML", icon: FileCode },
+        { name: "Firebase", icon: Cloud },
+        { name: "Android SDK", icon: Smartphone },
+        { name: "Firebase Auth", icon: Shield },
+        { name: "Cloud Firestore", icon: Database }
+      ],
       features: [
         "Profile creation and management with photo uploads",
         "Smart profile matching algorithm based on preferences",
@@ -225,15 +239,19 @@ const ProjectDetails = () => {
                 </h3>
                 
                 <div className="flex flex-wrap gap-2">
-                  {project.techStack.map((tech, index) => (
-                    <Badge
-                      key={index}
-                      variant="secondary"
-                      className="bg-portfolio-accent/20 text-portfolio-accent hover:bg-portfolio-accent/30"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
+                  {project.techStack.map((tech, index) => {
+                    const IconComponent = tech.icon;
+                    return (
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="bg-portfolio-accent/20 text-portfolio-accent hover:bg-portfolio-accent/30 flex items-center gap-2"
+                      >
+                        <IconComponent className="w-4 h-4" />
+                        {tech.name}
+                      </Badge>
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>

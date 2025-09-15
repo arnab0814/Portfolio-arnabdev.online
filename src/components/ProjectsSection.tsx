@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Calendar, Users, Database, Code2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Calendar, Users, Database, Code2, Server, Smartphone, FileCode, Settings, Cloud, Shield } from "lucide-react";
 
 const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useState(0);
@@ -15,7 +15,12 @@ const ProjectsSection = () => {
       description: "A comprehensive backend system for train booking and reservation management built with Java and Spring Boot. Features include user authentication, train search functionality, seat booking, and complete reservation management.",
       image: "https://i.postimg.cc/59vdfyqL/Chat-GPT-Image-Sep-11-2025-10-28-23-PM.png",
       githubUrl: "https://github.com/arnab0814/OIBSIP_Java_Task1.git",
-      techStack: ["Java", "Spring Boot", "MySQL", "REST API"],
+      techStack: [
+        { name: "Java", icon: Code2 },
+        { name: "Spring Boot", icon: Server },
+        { name: "MySQL", icon: Database },
+        { name: "REST API", icon: Settings }
+      ],
       features: [
         "User login and authentication",
         "Advanced train search with filters",
@@ -39,7 +44,12 @@ const ProjectsSection = () => {
       description: "A modern Android dating application developed as an academic project. Features profile matching, real-time chat, and user authentication. Built with Java and XML for Android platform with Firebase backend.",
       image: "https://i.postimg.cc/gJdxDjph/banner.png",
       githubUrl: "https://github.com/arnab0814/Milap-repo.git",
-      techStack: ["Java", "XML", "Firebase", "Android SDK"],
+      techStack: [
+        { name: "Java", icon: Code2 },
+        { name: "XML", icon: FileCode },
+        { name: "Firebase", icon: Cloud },
+        { name: "Android SDK", icon: Smartphone }
+      ],
       features: [
         "Profile creation and management",
         "Smart profile matching algorithm",
@@ -169,14 +179,18 @@ const ProjectsSection = () => {
                     Technology Stack:
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-portfolio-accent/20 text-portfolio-accent rounded-full text-sm font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                    {project.techStack.map((tech, index) => {
+                      const IconComponent = tech.icon;
+                      return (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-portfolio-accent/20 text-portfolio-accent rounded-full text-sm font-medium flex items-center gap-2"
+                        >
+                          <IconComponent className="w-4 h-4" />
+                          {tech.name}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
 
