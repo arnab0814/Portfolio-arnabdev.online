@@ -14,6 +14,7 @@ const ProjectsSection = () => {
       title: "Train Reservation System",
       description: "A comprehensive backend system for train booking and reservation management built with Java and Spring Boot. Features include user authentication, train search functionality, seat booking, and complete reservation management.",
       image: "https://i.postimg.cc/59vdfyqL/Chat-GPT-Image-Sep-11-2025-10-28-23-PM.png",
+      githubUrl: "https://github.com/arnab0814/OIBSIP_Java_Task1.git",
       techStack: ["Java", "Spring Boot", "MySQL", "REST API"],
       features: [
         "User login and authentication",
@@ -37,6 +38,7 @@ const ProjectsSection = () => {
       title: "Milap - Dating App",
       description: "A modern Android dating application developed as an academic project. Features profile matching, real-time chat, and user authentication. Built with Java and XML for Android platform with Firebase backend.",
       image: "https://i.postimg.cc/gJdxDjph/banner.png",
+      githubUrl: "https://github.com/arnab0814/Milap-repo.git",
       techStack: ["Java", "XML", "Firebase", "Android SDK"],
       features: [
         "Profile creation and management",
@@ -198,6 +200,7 @@ const ProjectsSection = () => {
                   <Button 
                     className="bg-portfolio-accent hover:bg-portfolio-accent-hover text-white"
                     size="sm"
+                    onClick={() => window.open(project.githubUrl, '_blank', 'noopener,noreferrer')}
                   >
                     <Github className="w-4 h-4 mr-2" />
                     View Code
