@@ -8,81 +8,65 @@ const SkillsSection = () => {
     title: "Frontend",
     icon: Globe,
     skills: [{
-      name: "React",
-      level: 85,
+      name: "React.js (JavaScript, ES6+)",
+      level: 90,
       icon: "⚛️"
     }, {
-      name: "XML",
-      level: 80,
+      name: "XML (Android UI Design)",
+      level: 85,
       icon: "📄"
     }, {
-      name: "UI Design",
-      level: 75,
+      name: "UI/UX & Responsive Web Design",
+      level: 88,
       icon: "🎨"
     }, {
-      name: "Responsive Design",
-      level: 90,
-      icon: "📱"
+      name: "TailwindCSS, CSS3, HTML5",
+      level: 92,
+      icon: "💅"
     }]
   }, {
     title: "Backend",
     icon: Settings,
     skills: [{
-      name: "Java",
+      name: "Java (Spring Boot)",
       level: 95,
       icon: "☕"
     }, {
-      name: "Spring Boot",
-      level: 90,
-      icon: "🍃"
-    }, {
-      name: "REST APIs",
+      name: "Node.js & Express.js",
       level: 85,
+      icon: "🟢"
+    }, {
+      name: "REST API Development",
+      level: 90,
       icon: "🔗"
     }, {
-      name: "Microservices",
-      level: 75,
-      icon: "🔧"
+      name: "Authentication & Security (JWT)",
+      level: 87,
+      icon: "🔐"
+    }, {
+      name: "Clean & Efficient Code (OOP, MVC)",
+      level: 93,
+      icon: "✨"
     }]
   }, {
     title: "Database",
     icon: Database,
     skills: [{
       name: "MySQL",
-      level: 85,
+      level: 88,
       icon: "🗄️"
     }, {
-      name: "Firebase",
-      level: 80,
+      name: "MongoDB",
+      level: 82,
+      icon: "🍃"
+    }, {
+      name: "Firebase (Realtime DB & Auth)",
+      level: 85,
       icon: "🔥"
     }, {
-      name: "Database Design",
-      level: 85,
+      name: "Database Design & Optimization",
+      level: 86,
       icon: "📊"
-    }, {
-      name: "Query Optimization",
-      level: 75,
-      icon: "⚡"
-    }]
-  }, {
-    title: "Other",
-    icon: Code,
-    skills: [{
-      name: "Problem Solving",
-      level: 95,
-      icon: "🧩"
-    }, {
-      name: "Clean Code",
-      level: 90,
-      icon: "✨"
-    }, {
-      name: "Git/GitHub",
-      level: 85,
-      icon: "🌿"
-    }, {
-      name: "Agile/Scrum",
-      level: 80,
-      icon: "🔄"
     }]
   }];
   const nextCategory = () => {
