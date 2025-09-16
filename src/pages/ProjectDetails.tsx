@@ -145,23 +145,26 @@ const ProjectDetails = () => {
         </div>
       </div>
 
+      {/* Project Image Hero */}
+      <div className="bg-portfolio-card border-b border-portfolio-accent/20">
+        <div className="container mx-auto px-6 py-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="aspect-video bg-portfolio-bg overflow-hidden rounded-lg shadow-lg border border-portfolio-accent/20">
+              <img 
+                src={project.image} 
+                alt={`${project.title} screenshot`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="container mx-auto px-6 py-12">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Project Image */}
-            <Card className="bg-portfolio-card border-portfolio-accent/20">
-              <CardContent className="p-0">
-                <div className="aspect-video bg-portfolio-bg overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={`${project.title} screenshot`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </CardContent>
-            </Card>
 
             {/* Project Overview */}
             <Card className="bg-portfolio-card border-portfolio-accent/20">
