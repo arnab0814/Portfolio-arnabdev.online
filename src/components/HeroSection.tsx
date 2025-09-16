@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Code, Database, Terminal, Cpu } from "lucide-react";
+import { ChevronDown, Code, Database, Terminal, Cpu, Coffee, Layers, Server, Globe, Zap, Braces } from "lucide-react";
 import arnabProfile from "@/assets/arnab-new-profile.jpg";
 
 const HeroSection = () => {
@@ -46,11 +46,12 @@ const HeroSection = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
           {/* Enhanced Text Content */}
           <div className="flex-1 text-center lg:text-left space-y-8">
-            {/* Status Badge */}
+            {/* Enhanced Status Badge */}
             <div className="animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-sm text-muted-foreground mb-6">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                Available for opportunities
+              <div className="group inline-flex items-center gap-2 px-5 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-primary/20 text-sm text-muted-foreground mb-6 hover:bg-card/70 hover:border-primary/40 hover:scale-105 transition-all duration-300 cursor-default">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse group-hover:bg-green-300"></div>
+                <span className="font-medium">Available for opportunities</span>
+                <div className="w-1 h-1 bg-primary/50 rounded-full animate-ping"></div>
               </div>
             </div>
             
@@ -111,19 +112,30 @@ const HeroSection = () => {
               </Button>
             </div>
             
-            {/* Tech Stack Preview */}
+            {/* Enhanced Tech Stack with Icons */}
             <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <p className="text-sm text-muted-foreground mb-3">Tech Stack</p>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                {['Java', 'Spring Boot', 'React', 'Node.js', 'MongoDB', 'MySQL'].map((tech, index) => (
-                  <span 
-                    key={tech}
-                    className="px-3 py-1 rounded-full bg-card/50 border border-primary/20 text-sm text-foreground hover:bg-primary/10 transition-colors duration-300 cursor-default"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <p className="text-sm text-muted-foreground mb-4">Tech Stack</p>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                {[
+                  { name: 'Java', icon: Coffee },
+                  { name: 'Spring Boot', icon: Layers },
+                  { name: 'React', icon: Braces },
+                  { name: 'Node.js', icon: Server },
+                  { name: 'MongoDB', icon: Database },
+                  { name: 'MySQL', icon: Database }
+                ].map((tech, index) => {
+                  const IconComponent = tech.icon;
+                  return (
+                    <div 
+                      key={tech.name}
+                      className="group flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 border border-primary/20 text-sm text-foreground hover:bg-primary/10 hover:border-primary/40 hover:scale-105 transition-all duration-300 cursor-default backdrop-blur-sm"
+                      style={{ animationDelay: `${0.5 + index * 0.1}s` }}
+                    >
+                      <IconComponent className="w-4 h-4 text-primary group-hover:text-primary/80 transition-colors duration-300" />
+                      <span className="font-medium">{tech.name}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -131,25 +143,31 @@ const HeroSection = () => {
           {/* Enhanced Profile Image */}
           <div className="flex-shrink-0 animate-scale-in relative">
             <div className="relative group">
-              {/* Glow effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500 animate-pulse"></div>
+              {/* Enhanced Glow effect */}
+              <div className="absolute -inset-6 bg-gradient-to-r from-primary/40 via-accent/30 to-primary/40 rounded-full blur-2xl group-hover:blur-3xl group-hover:from-primary/60 group-hover:via-accent/50 group-hover:to-primary/60 transition-all duration-700 animate-pulse"></div>
               
               {/* Main image container */}
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl group-hover:border-primary/50 transition-all duration-500">
+              <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl group-hover:border-primary/60 group-hover:shadow-primary/20 transition-all duration-500 hover:rotate-2">
                 <img 
                   src={arnabProfile} 
                   alt="Arnab Das - Full Stack Developer" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent group-hover:from-primary/30 transition-all duration-500"></div>
               </div>
               
-              {/* Floating code elements */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-card/80 backdrop-blur-sm rounded-lg border border-primary/30 flex items-center justify-center animate-float">
-                <Code className="w-6 h-6 text-primary" />
+              {/* Enhanced floating code elements */}
+              <div className="absolute -top-6 -right-6 w-14 h-14 bg-card/90 backdrop-blur-sm rounded-xl border border-primary/30 flex items-center justify-center animate-float hover:bg-primary/10 hover:border-primary/50 hover:scale-110 transition-all duration-300 cursor-pointer group-hover:rotate-12">
+                <Code className="w-7 h-7 text-primary" />
               </div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-card/80 backdrop-blur-sm rounded-lg border border-primary/30 flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
-                <Terminal className="w-6 h-6 text-primary" />
+              <div className="absolute -bottom-6 -left-6 w-14 h-14 bg-card/90 backdrop-blur-sm rounded-xl border border-primary/30 flex items-center justify-center animate-float hover:bg-primary/10 hover:border-primary/50 hover:scale-110 transition-all duration-300 cursor-pointer group-hover:-rotate-12" style={{ animationDelay: '1s' }}>
+                <Terminal className="w-7 h-7 text-primary" />
+              </div>
+              <div className="absolute top-1/4 -left-8 w-12 h-12 bg-card/80 backdrop-blur-sm rounded-lg border border-primary/20 flex items-center justify-center animate-float hover:bg-primary/10 hover:border-primary/40 hover:scale-110 transition-all duration-300 cursor-pointer" style={{ animationDelay: '0.5s' }}>
+                <Globe className="w-6 h-6 text-primary/70" />
+              </div>
+              <div className="absolute top-1/3 -right-8 w-12 h-12 bg-card/80 backdrop-blur-sm rounded-lg border border-primary/20 flex items-center justify-center animate-float hover:bg-primary/10 hover:border-primary/40 hover:scale-110 transition-all duration-300 cursor-pointer" style={{ animationDelay: '1.5s' }}>
+                <Zap className="w-6 h-6 text-primary/70" />
               </div>
             </div>
           </div>
