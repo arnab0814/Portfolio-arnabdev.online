@@ -68,6 +68,26 @@ const SkillsSection = () => {
       level: 86,
       icon: "📊"
     }]
+  }, {
+    title: "Tools",
+    icon: Code,
+    skills: [{
+      name: "Git/GitHub",
+      level: 90,
+      icon: "🌿"
+    }, {
+      name: "Problem Solving",
+      level: 95,
+      icon: "🧩"
+    }, {
+      name: "Agile/Scrum",
+      level: 85,
+      icon: "🔄"
+    }, {
+      name: "Code Review & Testing",
+      level: 88,
+      icon: "🔍"
+    }]
   }];
   const nextCategory = () => {
     setActiveCategory(prev => (prev + 1) % skillCategories.length);
