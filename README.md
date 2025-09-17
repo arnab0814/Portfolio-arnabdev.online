@@ -1,73 +1,106 @@
-# Welcome to your Lovable project
+# 🚀 Arnab Das – Portfolio Website
 
-## Project info
 
-**URL**: https://lovable.dev/projects/d689c601-fd00-4b16-b5af-d69d10c59132
+### A modern, responsive, and professional developer portfolio showcasing my skills, projects, and journey as a software developer.
+## 🌐 Live Demo
 
-## How can I edit this code?
+### 🔗 arnabdev.online
 
-There are several ways of editing your application.
+## 📌 Features
+```
+✅ Modern design with dark/light mode toggle
 
-**Use Lovable**
+✅ Fully responsive (desktop, tablet, mobile)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d689c601-fd00-4b16-b5af-d69d10c59132) and start prompting.
+✅ Interactive projects showcase with details & GitHub links
 
-Changes made via Lovable will be committed automatically to this repo.
+✅ Categorized skills (Frontend, Backend, Database)
 
-**Use your preferred IDE**
+✅ Contact section with social links
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+✅ Smooth animations for a polished user experience
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Tech Stack
 
-Follow these steps:
+```
+Frontend Framework: React (TypeScript + Vite)
+
+UI Styling: Tailwind CSS + shadcn/ui
+
+Icons: Lucide React
+
+Backend (Projects): Spring Boot, Firebase, MySQL
+
+Deployment: Netlify (Custom Domain – arnabdev.online)
+```
+
+## 📂 Project Structure
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+├── public/             # Static assets
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Pages (Home, About, Projects, Contact)
+│   ├── styles/         # Global styles
+│   ├── App.tsx         # Root component
+│   └── main.tsx        # Entry point
+├── package.json        # Dependencies & scripts
+└── tailwind.config.js  # Tailwind setup
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+## ⚡ Getting Started
+**1. Clone the Repository**
+```
+git clone https://github.com/arnab0814/Portfolio-arnabdev.online.git
+cd Portfolio-arnabdev.online
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+**2. Install Dependencies**
+
+```
+npm install
+```
+**3. Start Development Server**
+```
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Deployment (Netlify)
+1) Push repo to GitHub.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+2) Connect repo on Netlify.
+3) Set:
+ Build Command: npm run build and
+ Publish Directory: dist
 
-**Use GitHub Codespaces**
+4) Add custom domain → arnabdev.online
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 💼 Highlighted Projects
 
-## What technologies are used for this project?
+```
+🚆 Train Reservation System
 
-This project is built with:
+Tech: Java, Spring Boot, MySQL
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Features: User login, ticket booking, cancel reservation, view bookings
 
-## How can I deploy this project?
+GitHub Repo: OIBSIP Java Task 1
+```
 
-Simply open [Lovable](https://lovable.dev/projects/d689c601-fd00-4b16-b5af-d69d10c59132) and click on Share -> Publish.
+## 💘 Milap – Dating App
+```
+Tech: Java, XML, Firebase
 
-## Can I connect a custom domain to my Lovable project?
+Features: Profile swiping, real-time chat, authentication
 
-Yes, you can!
+GitHub Repo: Milap Project
+```
+## 📬 Contact Me
+- 📧 [arnabdas0814@gmail.com](mailto:arnabdas0814@gmail.com)  
+- 💼 [LinkedIn](www.linkedin.com/in/arnab-das-581a87264)  
+- 🌐 [Portfolio Website](https://www.arnabdev.online/)  
+### ✨ This portfolio is continuously evolving with new projects, features, and design improvements.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+ 
