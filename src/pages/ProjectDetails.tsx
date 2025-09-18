@@ -12,7 +12,7 @@ const ProjectDetails = () => {
     {
       id: "train-reservation",
       title: "Train Reservation System",
-      description: "A comprehensive backend system for train booking and reservation management built with Java and Spring Boot. Features include user authentication, train search functionality, seat booking, and complete reservation management.",
+      description: "The Train Reservation System is a full-stack application designed to simplify the process of booking, managing, and canceling train tickets. It provides a user-friendly interface where passengers can search trains, book tickets, view reservations, and cancel bookings efficiently.",
       image: "https://i.postimg.cc/59vdfyqL/Chat-GPT-Image-Sep-11-2025-10-28-23-PM.png",
       techStack: [
         { name: "Java", icon: Code2 },
@@ -53,7 +53,7 @@ const ProjectDetails = () => {
     {
       id: "milap-dating-app",
       title: "Milap - Dating App",
-      description: "A modern Android dating application developed as an academic project. Features profile matching, real-time chat, and user authentication. Built with Java and XML for Android platform with Firebase backend.",
+      description: "Milap is a social networking and chat application that helps users connect, make friends, and chat in real-time. It offers an Instagram-style chat interface with emoji support, chat lists, and profile views. The app ensures smooth communication with features like real-time messaging, dynamic chat bubbles, and circular profile images.",
       image: "https://i.postimg.cc/gJdxDjph/banner.png",
       techStack: [
         { name: "Java", icon: Code2 },
@@ -140,7 +140,7 @@ const ProjectDetails = () => {
           </h1>
           
           <p className="text-xl text-portfolio-text-secondary max-w-4xl">
-            The Train Reservation System is a full-stack application designed to simplify the process of booking, managing, and canceling train tickets. It provides a user-friendly interface where passengers can search trains, book tickets, view reservations, and cancel bookings efficiently.
+            {project.description}
           </p>
         </div>
       </div>
