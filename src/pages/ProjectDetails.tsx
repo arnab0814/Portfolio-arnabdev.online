@@ -116,7 +116,7 @@ const ProjectDetails = () => {
         <div className="container mx-auto px-6 py-6">
           <Button
             variant="ghost"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/#projects")}
             className="text-portfolio-accent hover:bg-portfolio-accent/20 mb-4"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -140,7 +140,7 @@ const ProjectDetails = () => {
           </h1>
           
           <p className="text-xl text-portfolio-text-secondary max-w-4xl">
-            {project.description}
+            The Train Reservation System is a full-stack application designed to simplify the process of booking, managing, and canceling train tickets. It provides a user-friendly interface where passengers can search trains, book tickets, view reservations, and cancel bookings efficiently.
           </p>
         </div>
       </div>
@@ -278,7 +278,7 @@ const ProjectDetails = () => {
                   <Button 
                     variant="outline"
                     className="w-full border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white"
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("/#projects")}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Back to Portfolio
