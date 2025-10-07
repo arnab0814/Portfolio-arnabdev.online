@@ -90,7 +90,7 @@ const HeroSection = () => {
                 size="lg"
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = 'https://drive.google.com/uc?export=download&id=1NCILhAZX4ThH4kX1ioNzTNeDU01Z6zHo';
+                  link.href = 'https://drive.google.com/uc?export=download&id=14COMw-Vhz56o3zQQoCyRYz9TA_lFOhxZ';
                   link.download = 'Arnab_Das_Resume.pdf';
                   document.body.appendChild(link);
                   link.click();
