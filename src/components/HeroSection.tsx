@@ -90,11 +90,9 @@ const HeroSection = () => {
                 size="lg"
                 onClick={() => {
                   const link = document.createElement('a');
-                  link.href = 'https://drive.google.com/uc?export=download&id=14COMw-Vhz56o3zQQoCyRYz9TA_lFOhxZ';
+                  link.href = '/Arnab_Das_Resume.pdf';
                   link.download = 'Arnab_Das_Resume.pdf';
-                  document.body.appendChild(link);
                   link.click();
-                  document.body.removeChild(link);
                 }}
                 className="group relative bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
