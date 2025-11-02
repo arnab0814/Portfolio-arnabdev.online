@@ -138,6 +138,8 @@ const ProjectsSection = () => {
                     src={project.image} 
                     alt={`${project.title} screenshot`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="absolute top-4 left-4">

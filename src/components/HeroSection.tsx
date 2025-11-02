@@ -150,6 +150,8 @@ const HeroSection = () => {
                   src={arnabProfile} 
                   alt="Arnab Das - Full Stack Developer" 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  decoding="async"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent group-hover:from-primary/30 transition-all duration-500"></div>
               </div>
