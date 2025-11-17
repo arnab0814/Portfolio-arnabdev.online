@@ -2,11 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ChevronLeft, ChevronRight, ExternalLink, Github, Calendar, Users, Database, Code2, Server, Smartphone, FileCode, Settings, Cloud, Shield } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useState(0);
+  const [filter, setFilter] = useState<string>("all");
   const navigate = useNavigate();
+  const { ref, isVisible } = useScrollAnimation();
 
   const projects = [
     {
@@ -30,6 +34,7 @@ const ProjectsSection = () => {
         "Admin panel for train management"
       ],
       type: "Backend System",
+      category: "backend",
       duration: "3 months",
       role: "Full Backend Developer",
       highlights: [
@@ -59,6 +64,7 @@ const ProjectsSection = () => {
         "User preference settings"
       ],
       type: "Mobile Application",
+      category: "mobile",
       duration: "2 months",
       role: "Android Developer",
       highlights: [
@@ -77,12 +83,23 @@ const ProjectsSection = () => {
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
-  const project = projects[currentProject];
+  const filteredProjects = filter === "all" 
+    ? projects 
+    : projects.filter(p => p.category === filter);
+
+  const project = filteredProjects[currentProject] || projects[0];
+
+  const filters = [
+    { label: "All Projects", value: "all" },
+    { label: "Backend", value: "backend" },
+    { label: "Mobile", value: "mobile" },
+    { label: "Full Stack", value: "fullstack" },
+  ];
 
   return (
-    <section id="projects" className="py-20 bg-portfolio-bg">
+    <section ref={ref} id="projects" className={`py-20 bg-portfolio-bg transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-portfolio-text-primary mb-4">
             Featured <span className="text-portfolio-accent">Projects</span>
           </h2>
@@ -90,6 +107,27 @@ const ProjectsSection = () => {
           <p className="text-portfolio-text-secondary text-lg max-w-2xl mx-auto">
             Showcasing my technical expertise through real-world applications and innovative solutions
           </p>
+        </div>
+
+        {/* Project Filters */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {filters.map((filterOption) => (
+            <Badge
+              key={filterOption.value}
+              variant={filter === filterOption.value ? "default" : "outline"}
+              className={`cursor-pointer px-4 py-2 text-sm transition-all duration-300 ${
+                filter === filterOption.value
+                  ? "bg-portfolio-accent text-white hover:bg-portfolio-accent-hover"
+                  : "border-portfolio-accent/40 text-portfolio-text-secondary hover:border-portfolio-accent hover:text-portfolio-accent"
+              }`}
+              onClick={() => {
+                setFilter(filterOption.value);
+                setCurrentProject(0);
+              }}
+            >
+              {filterOption.label}
+            </Badge>
+          ))}
         </div>
 
         {/* Project Navigation */}

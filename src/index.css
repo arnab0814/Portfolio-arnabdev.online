@@ -78,6 +78,18 @@ All colors MUST be HSL.
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 174 100% 29%;
+    
+    /* Light mode portfolio colors */
+    --portfolio-bg: 0 0% 98%;
+    --portfolio-card: 0 0% 100%;
+    --portfolio-accent: 174 100% 29%;
+    --portfolio-accent-hover: 174 100% 25%;
+    --portfolio-text-primary: 222.2 84% 4.9%;
+    --portfolio-text-secondary: 215.4 16.3% 46.9%;
+    --portfolio-gradient: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 100%));
+    --portfolio-accent-gradient: linear-gradient(135deg, hsl(174 100% 29%), hsl(174 100% 25%));
+    --shadow-glow: 0 0 40px hsl(174 100% 29% / 0.2);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.1);
   }
 }
 

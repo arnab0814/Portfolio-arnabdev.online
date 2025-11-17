@@ -4,8 +4,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Github, Send, MapPin, Phone } from "lucide-react";
+import { Mail, Linkedin, Github, Send, MapPin, Phone, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -13,8 +14,14 @@ const ContactSection = () => {
     email: "",
     message: ""
   });
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { ref, isVisible } = useScrollAnimation();
 
   // Initialize EmailJS
   useEffect(() => {
@@ -27,18 +34,49 @@ const ContactSection = () => {
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors(prev => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = { name: "", email: "", message: "" };
+    let isValid = true;
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+      isValid = false;
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+      isValid = false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+      isValid = false;
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email";
+      isValid = false;
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+      isValid = false;
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({
-        title: "Please fill in all fields",
-        description: "All fields are required to send your message.",
-        variant: "destructive"
-      });
+    if (!validateForm()) {
       return;
     }
 
@@ -97,7 +135,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-portfolio-bg">
+    <section ref={ref} id="contact" className={`py-20 bg-portfolio-bg transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-portfolio-text-primary mb-4">
@@ -120,7 +158,7 @@ const ContactSection = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-portfolio-text-primary mb-2">
-                    Your Name
+                    Your Name *
                   </label>
                   <Input
                     id="name"
@@ -129,13 +167,18 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Enter your full name"
-                    className="bg-portfolio-bg border-portfolio-accent/30 text-portfolio-text-primary placeholder:text-portfolio-text-secondary focus:border-portfolio-accent"
+                    className={`bg-portfolio-bg border-portfolio-accent/30 text-portfolio-text-primary placeholder:text-portfolio-text-secondary focus:border-portfolio-accent ${
+                      errors.name ? "border-destructive" : ""
+                    }`}
                   />
+                  {errors.name && (
+                    <p className="text-destructive text-sm mt-1">{errors.name}</p>
+                  )}
                 </div>
                 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-portfolio-text-primary mb-2">
-                    Email Address
+                    Email Address *
                   </label>
                   <Input
                     id="email"
@@ -144,13 +187,18 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Enter your email address"
-                    className="bg-portfolio-bg border-portfolio-accent/30 text-portfolio-text-primary placeholder:text-portfolio-text-secondary focus:border-portfolio-accent"
+                    className={`bg-portfolio-bg border-portfolio-accent/30 text-portfolio-text-primary placeholder:text-portfolio-text-secondary focus:border-portfolio-accent ${
+                      errors.email ? "border-destructive" : ""
+                    }`}
                   />
+                  {errors.email && (
+                    <p className="text-destructive text-sm mt-1">{errors.email}</p>
+                  )}
                 </div>
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-portfolio-text-primary mb-2">
-                    Message
+                    Message *
                   </label>
                   <Textarea
                     id="message"
@@ -159,8 +207,13 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     placeholder="Tell me about your project or how I can help you..."
                     rows={5}
-                    className="bg-portfolio-bg border-portfolio-accent/30 text-portfolio-text-primary placeholder:text-portfolio-text-secondary focus:border-portfolio-accent resize-none"
+                    className={`bg-portfolio-bg border-portfolio-accent/30 text-portfolio-text-primary placeholder:text-portfolio-text-secondary focus:border-portfolio-accent resize-none ${
+                      errors.message ? "border-destructive" : ""
+                    }`}
                   />
+                  {errors.message && (
+                    <p className="text-destructive text-sm mt-1">{errors.message}</p>
+                  )}
                 </div>
                 
                 <Button 
