@@ -1,16 +1,21 @@
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navigation = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
+    { id: "timeline", label: "Journey" },
     { id: "services", label: "Services" },
+    { id: "testimonials", label: "Testimonials" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -42,6 +47,7 @@ const Navigation = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
     }
   };
 
@@ -70,14 +76,55 @@ const Navigation = () => {
                 )}
               </button>
             ))}
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 py-4 border-t border-portfolio-accent/20">
+            <div className="flex flex-col space-y-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-left px-4 py-2 rounded-lg transition-colors duration-300 ${
+                    activeSection === item.id
+                      ? "text-portfolio-accent bg-portfolio-accent/10"
+                      : "text-portfolio-text-secondary hover:text-portfolio-accent"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+              <Button 
+                onClick={() => scrollToSection("contact")}
+                className="w-full bg-portfolio-accent hover:bg-portfolio-accent-hover text-white"
+              >
+                Hire Me
+              </Button>
+            </div>
+          </div>
+        )}
+
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
+            <Button 
+              onClick={() => scrollToSection("contact")}
+              className="bg-portfolio-accent hover:bg-portfolio-accent-hover text-white border-0 shadow-glow"
+            >
+              Hire Me
+            </Button>
           </div>
 
-          <Button 
-            onClick={() => scrollToSection("contact")}
-            className="bg-portfolio-accent hover:bg-portfolio-accent-hover text-white border-0 shadow-glow"
-          >
-            Hire Me
-          </Button>
+          <div className="md:hidden flex items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-portfolio-text-primary"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
     </nav>

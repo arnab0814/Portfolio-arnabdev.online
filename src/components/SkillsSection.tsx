@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Code, Database, Globe, Settings } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState(0);
+  const [animatedLevels, setAnimatedLevels] = useState<number[]>([]);
+  const { ref, isVisible } = useScrollAnimation();
   const skillCategories = [{
     title: "Frontend",
     icon: Globe,
@@ -95,7 +98,20 @@ const SkillsSection = () => {
   const prevCategory = () => {
     setActiveCategory(prev => (prev - 1 + skillCategories.length) % skillCategories.length);
   };
-  return <section id="skills" className="py-20 bg-portfolio-card">
+
+  // Animate skill bars when visible
+  useEffect(() => {
+    if (isVisible) {
+      const currentSkills = skillCategories[activeCategory].skills;
+      setAnimatedLevels([]);
+      currentSkills.forEach((skill, index) => {
+        setTimeout(() => {
+          setAnimatedLevels(prev => [...prev, skill.level]);
+        }, index * 100);
+      });
+    }
+  }, [isVisible, activeCategory]);
+  return <section ref={ref} id="skills" className={`py-20 bg-portfolio-card transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-portfolio-text-primary mb-4">
@@ -139,24 +155,30 @@ const SkillsSection = () => {
               </div>
               
               <div className="grid md:grid-cols-2 gap-6">
-                {skillCategories[activeCategory].skills.map((skill, index) => <div key={index} className="group">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl">{skill.icon}</span>
-                        <span className="font-medium text-portfolio-text-primary">
-                          {skill.name}
+                {skillCategories[activeCategory].skills.map((skill, index) => {
+                  const currentLevel = animatedLevels[index] || 0;
+                  return (
+                    <div key={index} className="group">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl">{skill.icon}</span>
+                          <span className="font-medium text-portfolio-text-primary">
+                            {skill.name}
+                          </span>
+                        </div>
+                        <span className="text-portfolio-accent font-semibold">
+                          {currentLevel}%
                         </span>
                       </div>
-                      <span className="text-portfolio-accent font-semibold">
-                        {skill.level}%
-                      </span>
+                      <div className="w-full bg-portfolio-card rounded-full h-2 overflow-hidden">
+                        <div 
+                          className="h-full bg-accent-gradient rounded-full transition-all duration-1000 ease-out group-hover:shadow-glow" 
+                          style={{ width: `${currentLevel}%` }}
+                        />
+                      </div>
                     </div>
-                    <div className="w-full bg-portfolio-card rounded-full h-2 overflow-hidden">
-                      <div className="h-full bg-accent-gradient rounded-full transition-all duration-1000 ease-out" style={{
-                    width: `${skill.level}%`
-                  }}></div>
-                    </div>
-                  </div>)}
+                  );
+                })}
               </div>
             </CardContent>
           </Card>
