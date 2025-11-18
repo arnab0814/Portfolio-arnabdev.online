@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, Heart } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -59,7 +59,12 @@ const Footer = () => {
           </div>
           
           {/* Copyright */}
-          <div className="pt-8 border-t border-portfolio-accent/20">
+          <div className="pt-8 border-t border-portfolio-accent/20 space-y-2">
+            <p className="text-portfolio-text-secondary text-sm flex items-center justify-center gap-2">
+              Made with 
+              <Heart className="w-4 h-4 text-portfolio-accent fill-current" />
+              and lots of coffee
+            </p>
             <p className="text-portfolio-text-secondary text-sm text-center">
               © 2025 Arnab Das • All rights reserved
             </p>
