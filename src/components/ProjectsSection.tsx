@@ -14,6 +14,36 @@ const ProjectsSection = () => {
 
   const projects = [
     {
+      id: "infosys-springboard-project",
+      title: "Infosys Springboard Web Application",
+      description: "A full-stack web application developed during my ongoing internship at Infosys Springboard. Built with Java Spring Boot backend and Thymeleaf frontend, featuring robust data management with MySQL database integration.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
+      githubUrl: "#",
+      techStack: [
+        { name: "Java", icon: Code2 },
+        { name: "Spring Boot", icon: Server },
+        { name: "MySQL", icon: Database },
+        { name: "Thymeleaf", icon: FileCode }
+      ],
+      features: [
+        "RESTful API architecture",
+        "Dynamic Thymeleaf templates",
+        "MySQL database integration",
+        "User authentication & authorization",
+        "CRUD operations",
+        "Responsive web design"
+      ],
+      type: "Full Stack Web App",
+      category: "fullstack",
+      duration: "Ongoing",
+      role: "Full Stack Developer Intern",
+      highlights: [
+        "Spring Boot MVC architecture",
+        "JPA/Hibernate ORM integration",
+        "Clean code practices"
+      ]
+    },
+    {
       id: "train-reservation",
       title: "Train Reservation System",
       description: "A comprehensive backend system for train booking and reservation management built with Java and Spring Boot. Features include user authentication, train search functionality, seat booking, and complete reservation management.",
