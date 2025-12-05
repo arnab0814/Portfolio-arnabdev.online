@@ -14,9 +14,9 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      id: "infosys-springboard-project",
-      title: "Infosys Springboard Web Application",
-      description: "A full-stack web application developed during my ongoing internship at Infosys Springboard. Built with Java Spring Boot backend and Thymeleaf frontend, featuring robust data management with MySQL database integration.",
+      id: "automated-task-reminder",
+      title: "Automated Task Reminder & Tracking Application",
+      description: "A full-stack task management web application developed during my ongoing internship at Infosys Springboard. Features automated reminders, task tracking, and progress monitoring built with Java Spring Boot and Thymeleaf.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
       githubUrl: "#",
       techStack: [
@@ -26,11 +26,11 @@ const ProjectsSection = () => {
         { name: "Thymeleaf", icon: FileCode }
       ],
       features: [
-        "RESTful API architecture",
+        "Automated task reminders",
+        "Task progress tracking",
         "Dynamic Thymeleaf templates",
-        "MySQL database integration",
         "User authentication & authorization",
-        "CRUD operations",
+        "CRUD operations for tasks",
         "Responsive web design"
       ],
       type: "Full Stack Web App",
