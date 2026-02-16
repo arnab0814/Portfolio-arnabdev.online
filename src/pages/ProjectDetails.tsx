@@ -90,6 +90,47 @@ const ProjectDetails = () => {
         security: "Firebase Authentication with Google Sign-In integration",
         performance: "Image caching and lazy loading for smooth scrolling"
       }
+    },
+    {
+      id: "task-reminder",
+      title: "Automated Task Reminder & Tracking Application",
+      description: "A full-stack task management web application developed during the Infosys Springboard internship. It allows users to create, manage, and track tasks with automated email reminders. The application features a clean UI built with Thymeleaf and a robust Spring Boot backend with MySQL for persistent storage.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
+      techStack: [
+        { name: "Java", icon: Code2 },
+        { name: "Spring Boot", icon: Server },
+        { name: "MySQL", icon: Database },
+        { name: "Thymeleaf", icon: FileCode },
+        { name: "REST API", icon: Settings },
+        { name: "Maven", icon: Settings }
+      ],
+      features: [
+        "User registration and login with Spring Security",
+        "Create, update, and delete tasks with priority levels",
+        "Automated email reminders for upcoming deadlines",
+        "Task categorization with labels and tags",
+        "Dashboard with task progress overview and statistics",
+        "Due date tracking with calendar integration",
+        "Task filtering by status, priority, and category",
+        "Responsive UI with Thymeleaf template engine",
+        "RESTful API endpoints for task CRUD operations",
+        "Scheduled background jobs for reminder notifications"
+      ],
+      type: "Web Application",
+      duration: "3 months",
+      role: "Full Stack Developer (Intern)",
+      githubUrl: "https://github.com/arnab0814/Task-reminder-app.git",
+      highlights: [
+        "Automated email reminder system",
+        "Clean MVC architecture",
+        "Secure authentication flow"
+      ],
+      technicalDetails: {
+        architecture: "Spring Boot MVC with Thymeleaf server-side rendering and RESTful APIs",
+        database: "MySQL with JPA/Hibernate ORM for data persistence and relationship mapping",
+        security: "Spring Security with session-based authentication and CSRF protection",
+        performance: "Scheduled tasks using Spring Scheduler for automated reminder emails"
+      }
     }
   ];
 
