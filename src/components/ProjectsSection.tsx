@@ -18,7 +18,7 @@ const ProjectsSection = () => {
       title: "Automated Task Reminder & Tracking Application",
       description: "A full-stack task management web application developed during my ongoing internship at Infosys Springboard. Features automated reminders, task tracking, and progress monitoring built with Java Spring Boot and Thymeleaf.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
-      githubUrl: "#",
+      githubUrl: "https://github.com/arnab0814/Task-reminder-app.git",
       techStack: [
         { name: "Java", icon: Code2 },
         { name: "Spring Boot", icon: Server },
