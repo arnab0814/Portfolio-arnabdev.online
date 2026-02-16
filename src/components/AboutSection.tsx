@@ -12,8 +12,8 @@ const AboutSection = () => {
     {
       icon: Briefcase,
       title: "Experience",
-      description: "Internship Completed",
-      details: "OASIS Infobyte"
+      description: "2 Internships Completed",
+      details: "OASIS Infobyte & Infosys Springboard"
     },
     {
       icon: Code2,
@@ -43,7 +43,7 @@ const AboutSection = () => {
               I am a recent BCA graduate (2025) from K.P.B. Hinduja College, passionate about becoming a skilled software developer. I enjoy solving problems, writing clean and efficient code, and building real-world projects that make a difference.
             </p>
             <p className="text-portfolio-text-secondary text-lg leading-relaxed mb-6">
-              During my journey, I have completed an internship at OASIS Infobyte and gained hands-on experience in both app and web development. My focus is on backend development with Java and Spring Boot, while also building full-stack applications.
+              During my journey, I have completed internships at OASIS Infobyte and Infosys Springboard, gaining hands-on experience in both app and web development. My focus is on backend development with Java and Spring Boot, while also building full-stack applications.
             </p>
             <p className="text-portfolio-text-secondary text-lg leading-relaxed">
               I believe in continuous learning and staying updated with the latest technologies. My goal is to contribute to innovative projects and grow as a professional developer.

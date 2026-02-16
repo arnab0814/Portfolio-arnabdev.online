@@ -10,21 +10,21 @@ const ExperienceSection = () => {
     {
       company: "Infosys Springboard",
       role: "Java Full Stack Developer Intern",
-      duration: "Present",
+      duration: "Oct 2024 - Jan 2025",
       location: "Remote",
-      type: "Ongoing",
+      type: "Completed",
       description:
-        "Currently working on a web application project utilizing Java Spring Boot for backend development. Building robust RESTful APIs, implementing business logic, and integrating with MySQL database for data persistence.",
+        "Successfully completed an internship focused on building a full-stack Automated Task Reminder & Tracking Application using Java Spring Boot and Thymeleaf. Developed robust RESTful APIs, implemented business logic, and integrated MySQL database for data persistence.",
       responsibilities: [
-        "Developing backend services using Java and Spring Boot framework",
-        "Designing and implementing RESTful APIs for web application",
-        "Creating dynamic frontend views using Thymeleaf template engine",
-        "Managing database operations with MySQL and JPA/Hibernate",
-        "Collaborating with team members in agile development environment",
-        "Writing clean, maintainable code following industry best practices",
+        "Built backend services using Java and Spring Boot framework",
+        "Designed and implemented RESTful APIs for task management",
+        "Created dynamic frontend views using Thymeleaf template engine",
+        "Managed database operations with MySQL and JPA/Hibernate",
+        "Collaborated with team members in agile development environment",
+        "Delivered clean, maintainable code following industry best practices",
       ],
       techStack: ["Java", "Spring Boot", "MySQL", "Thymeleaf", "REST API", "JPA/Hibernate"],
-      isCurrent: true,
+      isCurrent: false,
     },
     {
       company: "OASIS Infobyte",
@@ -88,7 +88,7 @@ const ExperienceSection = () => {
                             {exp.role}
                           </h3>
                           {exp.isCurrent && (
-                            <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-xs">
+                            <Badge className="bg-portfolio-accent/20 text-portfolio-accent border-portfolio-accent/30 text-xs">
                               Current
                             </Badge>
                           )}
